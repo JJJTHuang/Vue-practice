@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue2.0.js"></script>
+    <script>
+        window.onload = function () {
+            let vm = new Vue({
+                el: "#app",
+                data: {
+                    classA: 'classA',
+                    classB: 'class11B'
+                }
+            });
+
+            let vm1 = new Vue({
+                el: "#app1",
+                data: {
+                    alert: {
+                        color: 'red',
+                        background:'blue'
+                    },
+                    a:{
+                        color:'black'
+                    }
+                }
+
+            });
+
+        }
+    </script>
+</head>
+<body>
+<h1>Class binding</h1>
+<p>检查下面的元素并查看其class属性</p>
+<div id="app">
+    <div v-bind:class="[classA,classB]">(1)数组语法</div>
+    <div v-bind:class="{'class-A':classA,'class-B':classB}">(2)对象语法</div>
+</div>
+<h1>Inner-style binding</h1>
+<div id="app1">
+    <div v-bind:style="{background:alert.background,color:'red'}">(1)数组语法</div>
+    <div v-bind:style="[alert,a]">(2)对象语法</div>
+</div>
+</body>
+</html>

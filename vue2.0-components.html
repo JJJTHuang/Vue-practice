@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>components</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<script src="vue2.0.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+	<my-component></my-component>
+	<button @click="count">{{ number }}</button>
+	<proptest :msg="todo"></proptest>
+</div>
+
+
+<script>
+	var child = {
+		template:`<h1>A custom component!</h1> <h1>A custom component!</h1> <button @click="count">ADD1</button> <button @click="count">Add2</button>`
+	}
+
+	var todo = {
+		first:111111111,
+		second:22222222
+	}
+
+
+	Vue.component('proptest',{
+		el:'.container',
+		template:'<span>{{ msg.first }}</span>',
+		props:['msg']
+	})
+
+	//组件局部注册
+	new Vue({
+		el:'.container',
+		data(){
+			return {
+				number:0
+			}
+		},
+		components:{
+			'my-component':child
+		},
+		methods:{
+			count(){
+				this.number++;
+			}
+		}
+	})
+</script>
+</body>
+</html>

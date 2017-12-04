@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue2.0.min.js"></script>
+    <script>
+        window.onload = function () {
+            let vm = new Vue({
+                el: "#app",
+                data: {
+                    avatar: "http://www.baidu.com",
+                    msg: 'hello',
+                    yes: true,
+                    no: false,
+                    items: {
+                        a: 'A',
+                        b: 'B',
+                        c: 'C'
+                    },
+                    html:'<h1>Hello</h1>',
+                    uncompiled : 'Thers is an uncompiled element'
+                },
+                methods:{
+                    say1(){
+                        alert('Hi - (v-on)');
+                    },
+                    say2:function () {
+                        alert('Hi - (@)');
+                    }
+                }
+            })
+
+            let Message = Vue.extend({
+                props : ['content'],
+                template : '<h1>{{content}}</h1>'
+            });
+            Vue.component('message', Message);
+
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+    <h1>v-bind(简写->:) 修饰符: .camel </h1>
+    <p>eg: <a :href="avatar" alt="">TEST</a></p>
+    <h1>v-model 修饰符: .lazy , .number , .trim</h1>
+    <p>eg: <input type="text" v-model="msg"> <span>{{ msg }}</span></p>
+    <h1>v-if/v-else/v-show</h1>
+    <p>eg:
+    <p v-if="yes">yes</p>
+    <p v-else>No</p>
+    <p v-show="no">HAHAHAH</p>
+    </p>
+    <strong>v-if&v-else 是惰性指令，若v-if为false ,代码不会执行编译。但v-show会，并在编译完成后隐藏元素</strong>
+    <h1>v-for</h1>
+    <p>eg:
+        <ul>
+            <li v-for="(value,key) in items">
+    <p>{{ key }} & {{ value }}</p>
+    </li>
+    </ul>
+    </p>
+    <h1>v-on(简写:@) 修饰符: .native(监听原生的事件)</h1>
+    eg:
+    <button v-on:click="say1">Say Hi!</button>
+    <button @click="say2">Say Hi!</button>
+    <h1>v-text (与{{}} 不同的是 v-text 需要绑定在某 个元素上，能避免未编译前的闪现问题)</h1>
+    <p>eg:
+        <span v-text="msg"></span>
+    </p>
+    <h1>v-html(简写: '')</h1>
+    <p>eg:
+        <span> 此处渲染为html  </span>
+        <span>此处渲染为普通字符串 {{ html }}</span>
+    </p>
+    <h1>v-el:</h1>
+    <p v-el:camelCase>eg:
+        There is a camelCase el.
+    </p>
+    <h1>v-ref ()</h1>
+    <p>eg:
+        <message v-ref:title content="title"></message>
+        <message v-ref:sub-title content="subTitle"></message>
+    </p>
+    <h1>v-pre (跳过编译该条语句)</h1>
+    <p v-pre>eg:
+        {{ uncompiled }}
+    </p>
+    <h1>v-cloak</h1>
+    <p v-cloak>eg: {{ msg }}</p>
+    <h1>v-once</h1>
+</div>
+</body>
+</html>

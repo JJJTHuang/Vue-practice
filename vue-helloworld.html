@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+		window.onload =function () {
+            var vm = new Vue({
+                el : '#app',
+                data: {
+                    message : 'Hello world, I am Vue.js'
+                }
+            });
+        }
+	</script>
+</head>
+<body>
+<div id="app">
+	{{ message }}
+</div>
+<!--<div id="app">-->
+	<!--<h1>Your input is {{ message }}</h1><input type="text" v-model=”message”>-->
+<!--</div>-->
+<div id="app1">
+	3 第 1 章 Vue.js 简介
+	<message content='Hello World'></message>
+</div>
+<script type="text/javascript">
+	var Message = Vue.extend({
+		props : ['content'],
+		template : '<h1>{{content}}</h1>'
+	});
+	Vue.component('message', Message);
+	var vm = new Vue({
+    	el : '#app1',
+	});
+</script>
+</body>
+</html>

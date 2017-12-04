@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Vue2.0.js"></script>
+    <script>
+        window.onload = function () {
+            let vm = new Vue({
+                el: "#app",
+                data: {
+                    firstName: 'Gavin',
+                    lastName: 'CLY',
+                    cents:100
+                },
+                computed: {
+                    fullName: function () {
+                        //this指向vm实例
+                        return this.firstName + ' ' + this.lastName
+                    },
+                    price:{
+                        get:function () {
+                            return (this.cents/100).toFixed(2)
+                        },
+                        set:function (newValue) {
+                            this.cents = newValue * 100;
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+    <p>{{ fullName }}</p>
+    <p>{{ price }}</p>
+</div>
+</body>
+</html>

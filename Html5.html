@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>你必须知道的28个html5特性、窍门和技术</title>
+	<style>
+		body{
+			text-align: center;
+		}
+		li{
+			list-style: none;
+		}
+		#ul1{
+			border:1px solid black;
+			width: 60%;
+			margin: 0 auto;
+		}
+		.data_custom { 
+			display:inline-block; position: relative; 
+		}
+		.data_custom:hover { color: transparent; }
+		.data_custom:hover:after {
+		    content: attr(data-hover-response);
+		    color: black;
+		    position: absolute;
+		    left: 0;
+		}
+		input { font-size: 14px; font-weight: bold;  }
+
+		input[type=range]:before { content: attr(min); padding-right: 5px; }
+		input[type=range]:after { content: attr(max); padding-left: 5px;}
+
+		output {
+		    display: block;
+		    font-size: 5.5em;
+		    font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+<h1><a href="http://www.zhangxinxu.com/wordpress/2010/08/%E7%BF%BB%E8%AF%91-%E4%BD%A0%E5%BF%85%E9%A1%BB%E7%9F%A5%E9%81%93%E7%9A%8428%E4%B8%AAhtml5%E7%89%B9%E5%BE%81%E3%80%81%E7%AA%8D%E9%97%A8%E5%92%8C%E6%8A%80%E6%9C%AF/">你必须知道的28个html5特性、窍门和技术</a></h1>
+<h3>一、新的Doctype ->  "< ! DOCTYPE html  >" </h3>
+<h3>二、图形元素(The Figure Element )</h3>
+<figure>
+	<img src="" title="这里是图片">
+	<figcaption>图片说明</figcaption>
+</figure>
+<h3>三、small重新定义</h3>
+<p>还在不久前，small元素被用来创建靠近logo且相关的副标题。这是个很有用的表现元素，但是，现在，这种用法可能就不正确了。small元素已经被重新定义了，指小字，因而更具可用性。试想下你网站底部的版权状态，根据对此元素新的HTML5定义，small可以正确地包裹这些信息。
+</p>
+<h3>四、脚本(scripts)和链接(links)无需type</h3>
+<h3>五、引号还是不要引号</h3>
+<p class=myClass id=someId> Start the reactor.
+<h3>六、内容可编辑(鼠标点击框框里面试试看？)</h3>
+<ul contenteditable="true" id="ul1">
+    <li>悼念遇难香港同胞 </li>
+    <li>深圳特区30周年</li>
+    <li>伊春空难</li>
+</ul>
+<h3>七、Email输入(Inputs)</h3>
+<form action="" method="get">
+    <label for="email">邮箱:</label><input id="email" name="email" type="email" /> 
+    <button type="submit">确定</button>
+</form>
+<h3>八、占位符(Placeholders)</h3>
+<h3>九、本地存储(Local Storage)✨✨✨✨</h3>
+<h3>十、语义的Header和Footer</h3>
+<header>头</header>
+<footer>脚</footer>
+<h3>十一、更多HTML5表单特征(More HTML5 Form Features )</h3>
+<a href="https://www.youtube.com/watch?v=spjOAFGxOP0&feature=youtu.be">先翻墙再点好不好</a>
+<form>
+	<input type="text" name="firstName">
+	<input type="email" name="email">
+	<input type="password" name="password">
+	<input type="submit" name="submit">
+</form>
+<h3>十二、IE和HTML5(Internet Explorer and HTML5)</h3>
+<p>header, footer, article, section, nav, menu, hgroup {  
+    display: block;  
+}</p>
+<h3>十三、文档某一部分的信息(hgroup)</h3>
+<header>
+    <hgroup>
+        <h1> Recall Fan Page </h1>
+        <h2> Only for people who want the memory of a lifetime. </h2>
+    </hgroup>
+</header>
+<h3>十四、必要的属性(Required Attribute )</h3>
+<input type="text" name="someInput" required>or
+<input type="text" name="someInput" required="required"> 
+<input type="submit" name="提交">
+<h3>十五、Autofocus属性</h3>
+此处完美实现自动聚焦
+<input type="text" name="someInput" placeholder="zhangxinxu" required autofocus>
+<h3>十六、Audio支持</h3>
+<p>-webkit-  .mp3</p>
+<p>-mo-     .ogg</p>
+<p>-o-(o 10以下)     .wav</p>
+<h3>十七、Video支持</h3>
+<h3>十八、视频预载(Preload Videos)</h3>
+<h3>十九、显示控制条</h3>
+<h3>二十、正则表达式</h3>
+<form action="" method="get">
+    <label for="username">姓名:</label>
+    <input id="username" name="username" type="text" placeholder="4-10个英文字母" pattern="[A-Za-z]{4,10}" required="required" autofocus /> 
+    <button type="submit">提交</button>
+</form>
+<h3>二十一、属性支持检测</h3>
+<script>
+alert( 'pattern' in document.createElement('input') );
+</script>
+<h3>二十二、mark元素(Mark Element )</h3>
+<h3> 搜索结果 </h3>
+<p> 我很喜欢《零秒出手》里面那个拉小提琴的女孩，原来她叫做 <mark>北川景子</mark>。 </p>
+<h3>二十三、什么时候使用div</h3>
+<p>div应该用在没有更好的元素的时候。</p>
+<h3><a href="https://youtu.be/HzCkSv3s0-k">二十四、什么可以开始立即使用(请翻墙)</a></h3>
+<h3>二十五、哪些不是HTML5(What is Not HTML5)</h3>
+<ul>
+	<ol>SVG:不是HTML5，至少10岁了。</ol>
+	<ol>CSS3:不是HTML5，它是…CSS。</ol>
+	<ol>Geolocation:不是HTML5.//zxx:Geolocation（地理位置）：通过HTML 5，您应该能够使Web应用程序可确定您的位置，并为您提供更多的相关信息。</ol>
+	<ol>Client Storage(客户端存储):非HTML5，虽说有一点切合，但被排除在规范之外，原因在于，担忧其作为一个整体，会变得过于复杂。它现在有自己的规范。</ol>
+	<ol>Web Sockets:不是HTML5，同样的，有着自己的一套准则。</ol>
+</ul>
+<h3>二十六、data属性(The Data Attribute)</h3>
+<a class="data_custom" data-hover-response="我说过不要碰我！" href="#">不要碰我，雅蠛蝶~~</a>
+<h3>二十七、Output元素</h3>
+<form action="" method="get">
+    <p>
+        10 + 5 = <output name="sum"></output>
+    </p>
+    <button type="submit">计算</button>
+</form>
+<script>
+	(function() {
+    var f = document.forms[0];
+
+    if ( typeof f['sum'] !== 'undefined' ) {
+        f.addEventListener('submit', function(e) {
+            f['sum'].value = 15;
+            e.preventDefault();
+        }, false);
+    } else {
+        alert('你的浏览器尚未准备好！'); 
+    }
+})();
+</script>
+<h3>二十八、使用区域input创建滑块(Create Sliders with the Range Input)</h3>
+<form method="post">
+    <h4>音量控制</h4>
+    <input type="range" name="range" min="0" max="10" step="1" value="" />
+    <output name="result"></output>
+</form>
+<script>
+		(function() {
+		    var f = document.forms[0],
+		        range = f['range'],
+		        result = f['result'],
+		        cachedRangeValue = localStorage.rangeValue ? localStorage.rangeValue : 5; 
+
+		    // 检测浏览器是否是足够酷
+		    // 识别range input.
+		    var o = document.createElement('input');
+		    o.type = 'range';
+		    if ( o.type === 'text' ) alert('不好意思，你的浏览器还不够酷，试试最新的Opera浏览器吧。');
+
+		    // 设置初始值
+		    // 无论是否本地存储了，都设置值为5
+		    range.value = cachedRangeValue;
+		    result.value = cachedRangeValue;
+
+		    // 当用户选择了个值，更新本地存储
+		    range.addEventListener("mouseup", function() {
+		        alert("你选择的值是：" + range.value + ". 我现在正在用本地存储保存此值。在现代浏览器上刷新并检测。");
+		        localStorage ? (localStorage.rangeValue = range.value) : alert("数据保存到了数据库或是其他什么地方。");
+		    }, false);
+
+		    // 滑动时显示选择的值
+		    range.addEventListener("change", function() {
+		        result.value = range.value;
+		    }, false);
+
+		})();
+</script>
+</body>
+</html>

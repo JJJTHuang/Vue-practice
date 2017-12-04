@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue2.0.min.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        {{ date | date}}
+    </div>
+    <!--vue2.0已不建议这种使用方法 -->
+    <input type="text" v-model="price | cents" >
+    <span>{{ date | dynamic price }}</span>
+    <script>
+    //1.注册一个date过滤器
+    // Vue.filter('date', function (value) {
+    //     if (!value instanceof Date)
+    //         return value;
+    //     return value.toLocaleDateString();
+    // });
+
+    //2.双向过滤器
+    Vue.filter('cents',{
+        read:function(value){
+            return (value/100).toFixed(2);
+        },
+        write:function(){
+            return value*100;
+        }
+    })
+
+    //3.动态参数
+    Vue.filter('dynamic', function(date, price) {
+      return date.toLocaleDateString() + ' : ' + price; 
+    });
+
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            date:new Date(),
+            price:150
+        }
+    })
+</script>
+</body>
+</html>

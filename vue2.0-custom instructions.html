@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue2.0.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1> //自定义指令</h1>
+    <div v-if="isExist" v-my-directive="param"> {{ param }}</div>
+    <!--<div v-my-msg="content"></div>-->
+</div>
+<div id="app1">
+    <h1>指令的高级选项</h1>
+    <p>params</p>
+    <div v-my-advance-directive  :a="a">params</div>
+</div>
+<script>
+
+    //指令注册 Vue.directive('指令名称',definition);
+
+    Vue.directive('my-directive', {
+        bind: function () {
+            console.log('bind', arguments);
+        },
+        update: function (newValue, oldValue) {
+            console.log('update', newValue, oldValue)
+        },
+        unbind: function () {
+            console.log('unbind', arguments);
+        }
+    });
+
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            param: 'first',
+            isExist: true
+        }
+    });
+
+    Vue.directive('my-advance-directive',{
+        params : ['a'],
+        paramWatchers : {
+            a : function(val, oldVal) {
+                console.log('watcher: ', val, oldVal)
+            }
+        },
+        bind : function() {
+            console.log('params', this.params);
+        }
+    });
+
+    let vm1 = new Vue({
+        el:"#app1",
+        data:{
+            a : 'dynamitc data'
+        }
+    });
+
+//    Vue.directive('my-msg', {
+//        bind: function () {
+//            console.log('~~~~~~~~~~~bind~~~~~~~~~~~~~');
+//            console.log('el', this.el);
+//            console.log('name', this.name);
+//            console.log('vm', this.vm);
+//            console.log('expression', this.expression);
+//            console.log('arg', this.arg);
+//            console.log('modifiers', this.modifiers);
+//            console.log('descriptor', this.descriptor);
+//        },
+//
+//        update: function (newValue, oldValue) {
+//            var keys = Object.keys(this.modifiers);
+//            window[this.arg][keys[0]](newValue);
+//        },
+//        unbind: function () {
+//        }
+//    });
+//
+//    let vm1 = new Vue({
+//        el: '#app',
+//        data: {
+//            content: 'there is the content'
+//        }
+//    });
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Vue2.0.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    msg: '',
+                    gender: '',//性别
+                    checked: '',
+                    multiChecked: [],
+                    selected: '',
+                    multiSelected: [],
+                    age:'',
+                    name:9
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+    <h1>Text</h1>
+    <input type="text" v-model="msg"><span>Your input:{{ msg }}</span>
+    <h1>Radio</h1>
+    <label><input type="radio" value="male" v-model="gender"></label>
+    <label><input type="radio" value="female" v-model="gender"></label>
+    <span>{{ gender }} </span>
+    <h1>Checkbox</h1>
+    <input type="checkbox" v-model="checked"/> <span>checked : {{ checked }}</span>
+    <label><input type="checkbox" value="1" v-model=" multiChecked">1</label>
+    <label><input type="checkbox" value="2" v-model=" multiChecked">2</label>
+    <label><input type="checkbox" value="3" v-model=" multiChecked">3</label>
+    <span>MultiChecked: {{ multiChecked.join('&') }}</span>
+    <h1>select</h1>
+    <select v-model="selected" name="" id="">
+        <option value="A">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
+    <span>{{ selected }}</span>
+    <select v-model="multiSelected" name="" id="" multiple>
+        <option  selected="selected">A</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+    </select>
+    <span>{{ multiSelected }}</span>
+    <h1>Value(绑定value)</h1>
+    略。。看书。
+    <h1>Params character(参数特性)</h1>
+    <input v-model="age" number/><span> {{ age }}</span>
+    <input v-model.trim="name" /> {{ name }}
+</div>
+</body>
+</html>

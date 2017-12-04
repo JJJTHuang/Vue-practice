@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Vue2.0.js"></script>
+    <script>
+        window.onload = function () {
+            let vm = new Vue({
+                el: "#app",
+                data: {
+                    yes: true,
+                    show12: true,
+                    hidden: false,
+                    items: [
+                        {title: 'title-1', description: 'description-1'},
+                        {title: 'title-2', description: 'description-2'},
+                        {title: 'title-3', description: 'description-3'},
+                        {title: 'title-4', description: 'description-4'}
+                    ],
+                    objectDemo: {
+                        a: 'a-value',
+                        b: 'b-value',
+                        c: 'c-value'
+                    }
+                }
+            })
+
+
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+    <h1>v-if & v-else</h1>
+    <p>"v-else" must next to "v-if"</p>
+    <span v-if="yes">YES</span>
+    <span v-else>NO</span>
+    <h1>v-show</h1>
+    <span v-show="show12">YES</span>
+    <span v-show="hidden">NO</span>
+    <h1>v-for</h1>
+    <ul>
+        <li v-for="i in items">
+            <p>{{ i.title }}</p>
+            <p>{{ i.description }}</p>
+        </li>
+        <li v-for="i in 5">
+            {{ i }}
+        </li>
+        <li v-for="(value, key) in objectDemo"> {{key}} : {{value}}</li>
+    </ul>
+    <h1>template tags usage</h1>
+    <template v-if="yes">
+        <p>There is first dom</p>
+        <p>There is second dom</p>
+        <p>There is third dom</p>
+    </template>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Vue2.0.js"></script>
+    <script>
+        window.onload = function () {
+            var vm = new Vue({
+                el: '#app',
+                data: {
+                    id: 1,
+                    index: 0,
+                    name: 'Vue',
+                    avatar: 'http://jthuang.cn/public/img/bg_home.jpg',
+                    count: [1, 2, 3, 4, 5],
+                    names: ['Vue1.0', 'Vue2.0'],
+                    items: [
+                        {name: 'Vue1.0', version: '1.0'},
+                        {name: 'Vue1.1', version: '1.0'}
+                    ]
+                },
+                method:{
+                    click11 : function () {
+                        alert('Did');
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+    <p v-once="name">{{ name }}  <strong>//(文本插值&HTML属性)只渲染一次</strong></p>
+    <p>{{ name.split('').join('-') }}  <strong>//绑定表达式</strong></p>
+    <p><strong>//过滤器(Vue.js 2.0 中已经去除了内置的过滤器)</strong></p>
+    <p><strong>//指令</strong></p>
+    <button v-on:click="click11">Do click</button>
+    <p><img v-bind:src="avatar"><strong>//指令</strong></p>
+</div>
+</body>
+</html>
+
+

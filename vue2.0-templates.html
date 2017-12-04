@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        window.onload = function () {
+            let vm = new Vue({
+                el:"#app",
+                template: "#tpl"
+            })
+        }
+    </script>
+</head>
+<body>
+<script id="tpl" type="x-templates">
+    <div class="wrapper">
+        <h1 class="tpl">hello</h1>
+        <p class="tpl">This is a template.</p>
+    </div>
+</script>
+<div id="app"></div>
+</body>
+</html>

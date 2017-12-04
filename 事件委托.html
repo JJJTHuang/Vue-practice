@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			height: 200px;
+			width: 200px;
+			background-color: skyblue;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var Odiv = document.querySelector('div');//匹配第一个div
+
+
+			//事件委托
+			Odiv.addEventListener('click',function(e){
+				// if(e.target){
+				// 	alert(e.target.nodeName)
+				// }
+
+				switch(e.target.nodeName){
+					case 'LI':alert('LI');break;
+					case 'UL':alert('UL');break;
+					case 'DIV':alert('DIV');break;
+				}
+			});
+		}
+
+		
+	</script>
+</head>
+<body>
+	<div>
+
+		<ul>
+			<li id="one">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul></div>
+	</body>
+	</html>
